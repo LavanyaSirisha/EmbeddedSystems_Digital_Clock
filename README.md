@@ -1,90 +1,19 @@
-# Welcome to GitHub
+## BUILDING A DIGITAL CLOCK USING LPC2148 MICROCONTROLLER
 
-Welcome to GitHub—where millions of developers work together on software. Ready to get started? Let’s learn how this all works by building and publishing your first GitHub Pages website!
+# Project Description :
 
-## Repositories
+LPC2148 is the widely used IC from the ARM-7 family. It is a reliable option for beginners as well as high-end application developers. Real Time Clock (RTC) is used to store Time and Date in the system even when the system is not in operation. This is the system used in many devices including Laptops, Mobile phones, tablets, Digital Cameras, etc. RTC is an inbuilt part of any electronic device. DS1307 is a widely used RTC which can interface with any controller. LPC2148 controller now has an inbuilt RTC to store timing information. This is a battery backup power clock so that it tracks the time even while the computer is turned off, or in a low power state. It is an IC (not a physical clock) that is present on the motherboard and responsible for timing the functioning of the system and system clock. 
 
-Right now, we’re in your first GitHub **repository**. A repository is like a folder or storage space for your project. Your project's repository contains all its files such as code, documentation, images, and more. It also tracks every change that you—or your collaborators—make to each file, so you can always go back to previous versions of your project if you make any mistakes.
+Our project’s aim is to configure this RTC and display time information onto the LCD which can be integrated into multiple devices.  Any computer device has two clocks - a hardware clock known as the Real Time Clock and the other is Software Clock. We configure it such that the lcd accepts data (from D0-D7 datapins) or commands from the KEIL program and displays the time (in terms of Seconds, Minutes, Hours) which can further be developed to use as a component responsible for interrupts, timer, task scheduling and synchronization, etc.
 
-This repository contains three important files: The HTML code for your first website on GitHub, the CSS stylesheet that decorates your website with colors and fonts, and the **README** file. It also contains an image folder, with one image file.
+# Software and Hardware tools used:
 
-## Describe your project
+KEIL MicroVision 4: This is a software development platform that can be used to create and build embedded applications such as a C/C++ compiler, macro assembler, etc. It is equipped with a device database, project manager, dialogs and even a flash programming utility. The platform offers a build mode to create applications and a debug mode for debugging the applications. With respect to this project, we have coded in KEIL’s C programming IDE using LPC2148 as our microcontroller.
+Proteus Design Suite: This software is used to simulate, design and build drawing circuits. It’s primary use is for electronic circuit simulation. It is also used as the design phase of a PCB layout project. It’s a core component and is included with all product configurations. The microcontroller simulation in Proteus works by applying either a hex file or a debug file to the microcontroller part on the schematic. 
 
-You are currently viewing your project's **README** file. **_README_** files are like cover pages or elevator pitches for your project. They are written in plain text or [Markdown language](https://guides.github.com/features/mastering-markdown/), and usually include a paragraph describing the project, directions on how to use it, who authored it, and more.
+LPC2148:  One of the most widely used IC from the ARM-7 family, LPC2148 is preloaded with several inbuilt peripherals. Its RISC based approach leads to reduced costs, heat, power use along with several other advantages like portability. As mentioned earlier, it’s processor is ARM7 – TDM-S and supports instructions that are 32-bit ARM or 16-t Thumbbi. It has upto 45 GPIO pins. LPC2148 has two ports for input output operations – PORT0 and PORT1. PORT0 contains pins for individual direction and PORT1 has pins for bidirectional purpose. LPC2148RTC can be clocked by a separate 32.768 KHz oscillator or by a programmable prescale divider based on the APB clock. It maintains a calendar and clock and provides seconds, minutes, hours, month, year, day of week, day of month and day of year.It has power supply pin that can be connected to a battery or to the main 3.3V, during power down mode, it uses little power.
 
-[Learn more about READMEs](https://help.github.com/en/articles/about-readmes)
-
-## Your first website
-
-**GitHub Pages** is a free and easy way to create a website using the code that lives in your GitHub repositories. You can use GitHub Pages to build a portfolio of your work, create a personal website, or share a fun project that you coded with the world. GitHub Pages is automatically enabled in this repository, but when you create new repositories in the future, the steps to launch a GitHub Pages website will be slightly different.
-
-[Learn more about GitHub Pages](https://pages.github.com/)
-
-## Rename this repository to publish your site
-
-We've already set-up a GitHub Pages website for you, based on your personal username. This repository is called `hello-world`, but you'll rename it to: `username.github.io`, to match your website's URL address. If the first part of the repository doesn’t exactly match your username, it won’t work, so make sure to get it right.
-
-Let's get started! To update this repository’s name, click the `Settings` tab on this page. This will take you to your repository’s settings page. 
-
-![repo-settings-image](https://user-images.githubusercontent.com/18093541/63130482-99e6ad80-bf88-11e9-99a1-d3cf1660b47e.png)
-
-Under the **Repository Name** heading, type: `username.github.io`, where username is your username on GitHub. Then click **Rename**—and that’s it. When you’re done, click your repository name or browser’s back button to return to this page.
-
-<img width="1039" alt="rename_screenshot" src="https://user-images.githubusercontent.com/18093541/63129466-956cc580-bf85-11e9-92d8-b028dd483fa5.png">
-
-Once you click **Rename**, your website will automatically be published at: https://your-username.github.io/. The HTML file—called `index.html`—is rendered as the home page and you'll be making changes to this file in the next step.
-
-Congratulations! You just launched your first GitHub Pages website. It's now live to share with the entire world
-
-## Making your first edit
-
-When you make any change to any file in your project, you’re making a **commit**. If you fix a typo, update a filename, or edit your code, you can add it to GitHub as a commit. Your commits represent your project’s entire history—and they’re all saved in your project’s repository.
-
-With each commit, you have the opportunity to write a **commit message**, a short, meaningful comment describing the change you’re making to a file. So you always know exactly what changed, no matter when you return to a commit.
-
-## Practice: Customize your first GitHub website by writing HTML code
-
-Want to edit the site you just published? Let’s practice commits by introducing yourself in your `index.html` file. Don’t worry about getting it right the first time—you can always build on your introduction later.
-
-Let’s start with this template:
-
-```
-<p>Hello World! I’m [username]. This is my website!</p>
-```
-
-To add your introduction, copy our template and click the edit pencil icon at the top right hand corner of the `index.html` file.
-
-<img width="997" alt="edit-this-file" src="https://user-images.githubusercontent.com/18093541/63131820-0794d880-bf8d-11e9-8b3d-c096355e9389.png">
+LM016L: This is a 16x2 LCD component used in our project. This is the most commonly used LCD based on Hitachi’s HD44780 controller.16 x 2 basically means that it can display 16 characters per line and that there are 2 lines. LM016L has 16 pins. Pin 1 is for power supply(GND) and pin 2 is for power supply(+5V). Pin 4 is the RS pin (register select) which is basically a control pin to specify if the instruction register or the data register should be connected to the data bus.  Pin 5 is 0 to indicate writing operation to the LCD Module and 1 if the LCD Module has to be read. Pin 6 denotes the enable which is used to latch information presented to its data pins. Pin 8 to pin 14 are the data bus lines.
 
 
-Delete this placeholder line:
 
-```
-<p>Welcome to your first GitHub Pages website!</p>
-```
-
-Then, paste the template to line 15 and fill in the blanks.
-
-<img width="1032" alt="edit-githuboctocat-index" src="https://user-images.githubusercontent.com/18093541/63132339-c3a2d300-bf8e-11e9-8222-59c2702f6c42.png">
-
-
-When you’re done, scroll down to the `Commit changes` section near the bottom of the edit page. Add a short message explaining your change, like "Add my introduction", then click `Commit changes`.
-
-
-<img width="1030" alt="add-my-username" src="https://user-images.githubusercontent.com/18093541/63131801-efbd5480-bf8c-11e9-9806-89273f027d16.png">
-
-Once you click `Commit changes`, your changes will automatically be published on your GitHub Pages website. Refresh the page to see your new changes live in action.
-
-:tada: You just made your first commit! :tada:
-
-## Extra Credit: Keep on building!
-
-Change the placeholder Octocat gif on your GitHub Pages website by [creating your own personal Octocat emoji](https://myoctocat.com/build-your-octocat/) or [choose a different Octocat gif from our logo library here](https://octodex.github.com/). Add that image to line 12 of your `index.html` file, in place of the `<img src=` link.
-
-Want to add even more code and fun styles to your GitHub Pages website? [Follow these instructions](https://github.com/github/personal-website) to build a fully-fledged static website.
-
-![octocat](./images/create-octocat.png)
-
-## Everything you need to know about GitHub
-
-Getting started is the hardest part. If there’s anything you’d like to know as you get started with GitHub, try searching [GitHub Help](https://help.github.com). Our documentation has tutorials on everything from changing your repository settings to configuring GitHub from your command line.
